@@ -1,0 +1,39 @@
+{
+  "studentsByDepartment": [
+    { "Department": "Computer Science", "Students": 42 },
+    { "Department": "Business", "Students": 31 },
+    { "Department": "Engineering", "Students": 27 },
+    { "Department": "Design", "Students": 18 },
+    { "Department": "Life Sciences", "Students": 12 }
+  ],
+  "enrollmentsByYear": [
+    { "Year": "2020", "Enrollments": 18 },
+    { "Year": "2021", "Enrollments": 24 },
+    { "Year": "2022", "Enrollments": 29 },
+    { "Year": "2023", "Enrollments": 35 },
+    { "Year": "2024", "Enrollments": 41 },
+    { "Year": "2025", "Enrollments": 46 }
+  ],
+  "columnVizProperties": {
+    "title": { "visible": false },
+    "legend": { "visible": false },
+    "plotArea": {
+      "dataLabel": { "visible": true },
+      "gap": { "innerGroupSpacing": 0.3 }
+    },
+    "valueAxis": { "title": { "visible": true, "text": "Students" } },
+    "categoryAxis": { "title": { "visible": false } },
+    "interaction": { "selectability": { "mode": "single" } }
+  },
+  "lineVizProperties": {
+    "title": { "visible": false },
+    "legend": { "visible": false },
+    "plotArea": {
+      "dataLabel": { "visible": true },
+      "marker": { "visible": true }
+    },
+    "valueAxis": { "title": { "visible": true, "text": "Enrollments" } },
+    "categoryAxis": { "title": { "visible": false } },
+    "interaction": { "selectability": { "mode": "single" } }
+  }
+}

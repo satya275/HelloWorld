@@ -1,0 +1,65 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:viz.data="sap.viz.ui5.data"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds">
+
+    <!-- Illustrative charts bound to the local JSON model "charts" (webapp/model/chartData.json) -->
+    <l:Grid defaultSpan="XL6 L6 M12 S12" hSpacing="1" vSpacing="1" class="sapUiSmallMarginTop">
+
+        <!-- Chart 1: column chart, students per department -->
+        <Panel headerText="Students by Department" expandable="false">
+            <viz:VizFrame
+                id="chartStudentsByDepartment"
+                vizType="column"
+                height="22rem"
+                width="100%"
+                uiConfig="{ applicationSet: 'fiori' }"
+                vizProperties="{charts>/columnVizProperties}">
+                <viz:dataset>
+                    <viz.data:FlattenedDataset data="{charts>/studentsByDepartment}">
+                        <viz.data:dimensions>
+                            <viz.data:DimensionDefinition name="Department" value="{charts>Department}" />
+                        </viz.data:dimensions>
+                        <viz.data:measures>
+                            <viz.data:MeasureDefinition name="Students" value="{charts>Students}" />
+                        </viz.data:measures>
+                    </viz.data:FlattenedDataset>
+                </viz:dataset>
+                <viz:feeds>
+                    <viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Students" />
+                    <viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Department" />
+                </viz:feeds>
+            </viz:VizFrame>
+        </Panel>
+
+        <!-- Chart 2: line chart, enrollments per year -->
+        <Panel headerText="Enrollments by Year" expandable="false">
+            <viz:VizFrame
+                id="chartEnrollmentsByYear"
+                vizType="line"
+                height="22rem"
+                width="100%"
+                uiConfig="{ applicationSet: 'fiori' }"
+                vizProperties="{charts>/lineVizProperties}">
+                <viz:dataset>
+                    <viz.data:FlattenedDataset data="{charts>/enrollmentsByYear}">
+                        <viz.data:dimensions>
+                            <viz.data:DimensionDefinition name="Year" value="{charts>Year}" />
+                        </viz.data:dimensions>
+                        <viz.data:measures>
+                            <viz.data:MeasureDefinition name="Enrollments" value="{charts>Enrollments}" />
+                        </viz.data:measures>
+                    </viz.data:FlattenedDataset>
+                </viz:dataset>
+                <viz:feeds>
+                    <viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Enrollments" />
+                    <viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Year" />
+                </viz:feeds>
+            </viz:VizFrame>
+        </Panel>
+
+    </l:Grid>
+</core:FragmentDefinition>
